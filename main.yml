@@ -1,0 +1,10 @@
+---
+- hosts: localhost
+  user: innoraft
+  roles:
+   - user
+  #tasks:
+   #- shell: echo 'Hello world'
+    # register: var
+   #- debug:
+    #  msg: the msg was {{ var.stdout }}
