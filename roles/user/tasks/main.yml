@@ -1,4 +1,16 @@
-- shell: echo 'Hello world'
-  register: var
-- debug:
-   msg: the msg was {{ var.stdout }}
+#- shell: echo 'Hello world'
+#  register: var
+#- debug:
+#   msg: the msg was {{ var.stdout }}
+- name: Create a login user
+  user:
+   name: subrata
+   password: '$6$SCFFnjPx$m0BopQASkUk.WmBelqkboYYVseCnFp3R4yHTGDqpusnITy4N6oRBwmxOz92gg15CmxrUTSyHp/KQBBdCzBEuv/'
+   #groups: # Empty by default, here we give it some groups
+    #- docker
+    #- sudo
+   state: present
+   shell: /bin/bash       # Defaults to /bin/bash
+   system: no             # Defaults to no
+   createhome: yes        # Defaults to yes
+   home: /home/subrata
