@@ -1,9 +1,11 @@
 ---
-- hosts: localhost
-  user: innoraft
-  #become: yes
+- hosts: all
+  user: ubuntu
+  become: yes
   roles:
    - user
+   - gitpull
+   - vhost_create
   #tasks:
    #- shell: echo 'Hello world'
     # register: var

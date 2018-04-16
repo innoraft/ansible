@@ -1,4 +1,15 @@
-- shell: echo 'Hello world'
-  register: var
-- debug:
-   msg: the msg was {{ var.stdout }}
+#- shell: echo 'Hello world'
+#  register: var
+#- debug:
+#   msg: the msg was {{ var.stdout }}
+- name: Copying vhost file demo_project.conf
+  become: yes
+  copy:
+   src: ../files/demo_project.conf
+   dest: /etc/apache2/sites-available/
+- name: Enabling the site
+  become: yes
+  command: chdir=/etc/apache2/sites-available/ a2ensite demo_project.conf
+- name: Reloading apache 
+  become: yes
+  shell: systemctl reload apache2

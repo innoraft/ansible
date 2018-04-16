@@ -2,10 +2,11 @@
 #  register: var
 #- debug:
 #   msg: the msg was {{ var.stdout }}
-- name: Create a login user
+- name: Create user subrata
   user:
    name: subrata
    password: '$6$SCFFnjPx$m0BopQASkUk.WmBelqkboYYVseCnFp3R4yHTGDqpusnITy4N6oRBwmxOz92gg15CmxrUTSyHp/KQBBdCzBEuv/'
+   #pass: 12345
    #groups: # Empty by default, here we give it some groups
     #- docker
     #- sudo

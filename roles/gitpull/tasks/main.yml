@@ -1,4 +1,40 @@
-- shell: echo 'Hello world'
-  register: var
-- debug:
-   msg: the msg was {{ var.stdout }}
+#- shell: echo 'Hello world'
+#  register: var
+#- debug:
+#   msg: the msg was {{ var.stdout }}
+# - name: Creating directory
+#   become: yes
+#   file:
+#    path: /var/www/demo_project
+#    state: directory
+#    owner: subrata
+#    group: www-data
+#    mode: 0770
+#    recurse: yes
+#- name: Git initializing
+  #become: yes
+  #shell: git init && "git remote add origin git@github.com:subrata101/demo_project.git"
+# - name: Pulling from git
+#   become: yes
+#   git:
+#    repo: git@github.com:subrata101/demo.git # repository os the git user
+#    dest: /var/www/demo_project/ # where you want to pull, that dir should be in git init situation
+#    update: yes # after pull update the files
+#    version: master # in which branch you want to pull branch
+#    accept_hostkey: yes # required  
+#   become_user: ubuntu # for the user who has ssh permission
+# - name: Cloning git repository
+#   become: yes
+#   shell: git clone https://github.com/subrata101/demo_project.git
+# - name: Moving demo_project
+#   become: yes
+#   shell: sudo mv demo_project /var/www/
+- name: Adding permissions
+  become: yes
+  file:
+   path: /var/www/demo_project
+   state: directory
+   owner: subrata
+   group: www-data
+   mode: 0770
+   recurse: yes
